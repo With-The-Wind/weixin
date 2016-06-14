@@ -1,0 +1,17 @@
+<div class="weixin-center" id="message" ng-controller="message">
+  <!-- 信息界面开始 -->
+  <ul class="weixin-people">
+    <li class="jiemian" ng-class="{'showD':shows}" ng-swipe-left="shows=true" ng-swipe-right="shows=false" ng-init="shows=false" ng-repeat="v in list">
+      <a href="#/liaotian/{{$index}}"></a>
+      <div class="jm-m">
+        <div class="people-photo">
+          <img ng-src="{{v.src}}" alt="">
+        </div>
+        <span class="people-message"><span class="pm-up">{{v.name}}</span><span class="pm-down">{{v.message}}</span></span>
+        <div class="time">{{v.time}}</div>
+      </div>
+      <div class="deleted" ng-click='delete($index)'>删除</div>
+    </li>
+  </ul>
+  <!-- 信息界面结束 -->
+</div>

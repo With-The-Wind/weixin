@@ -1,0 +1,410 @@
+var strs = angular.module('str',['ngAnimate','ngRoute','ngTouch']);
+strs.controller('header',['$scope',function($scope){
+  $scope.title='微信'
+}]).factory('$lis',function(){
+  var liss = [
+    {
+      keys:'Z',
+      shuju:[
+        {
+          id:1001,
+          src:'./img/3.jpg',
+          name:'张三',
+          message:'哎，一言难尽',
+          time:'14:50',
+          weixinhao:'aaa0001',
+          beizhu:'朋友',
+          liaotianjilu:[
+            {xinxi:'我有演唱会，你来？',isme:false},
+            {xinxi:'没时间',isme:true},
+            {xinxi:'最近在忙啥呢？',isme:false},
+            {xinxi:'哎，一言难尽',isme:true}
+          ]
+        },
+        {
+          id:1004,
+          src:'./img/9.jpg',
+          name:'赵六',
+          message:'回去注意安全',
+          weixinhao:'aaa0002',
+          time:'11:50',
+          beizhu:'朋友',
+          liaotianjilu:[
+            {xinxi:'端午回家？',isme:true},
+            {xinxi:'没时间，你要回去？',isme:false},
+            {xinxi:'是啊，准备回去？',isme:true},
+            {xinxi:'回去注意安全',isme:false}
+          ]
+        },
+        {
+          id:1009,
+          src:'./img/11.jpg',
+          name:'赵十',
+          message:'一会电话联系',
+          time:'08:34',
+          weixinhao:'aaa0003',
+          beizhu:'朋友',
+          liaotianjilu:[
+            {xinxi:'吃什么去？',isme:false},
+            {xinxi:'随便，去喝点酒',isme:true},
+            {xinxi:'好的',isme:false},
+            {xinxi:'一会电话联系',isme:true}
+          ]
+        }
+      ]
+    },
+    {
+      keys:'A',
+      shuju:[
+        {
+          id:1008,
+          src:'./img/10.jpg',
+          name:'安十',
+          message:'安',
+          time:'08:50',
+          beizhu:'朋友',
+          weixinhao:'aaa0004',
+          liaotianjilu:[
+            {xinxi:'早点休息？',isme:false},
+            {xinxi:'恩恩',isme:true},
+            {xinxi:'晚安',isme:false},
+            {xinxi:'安',isme:true}
+          ]
+        }
+      ]
+    },
+    {
+      keys:'L',
+      shuju:[
+        {
+          id:1002,
+          src:'./img/4.jpg',
+          name:'李四',
+          message:'马上到',
+          time:'14:30',
+          beizhu:'亲人',
+          weixinhao:'aaa0005',
+          liaotianjilu:[
+            {xinxi:'我要走，你来？',isme:false},
+            {xinxi:'等我',isme:true},
+            {xinxi:'好的',isme:false},
+            {xinxi:'马上到',isme:true}
+          ]
+        }
+      ]
+    },
+    {
+      keys:'M',
+      shuju:[
+        {
+          id:1005,
+          src:'./img/7.jpg',
+          name:'马七',
+          message:'注意安全',
+          time:'10:54',
+          beizhu:'朋友',
+          weixinhao:'aaa0006',
+          liaotianjilu:[
+            {xinxi:'晚上回来？',isme:false},
+            {xinxi:'不回去',isme:true},
+            {xinxi:'那我锁门了',isme:false},
+            {xinxi:'注意安全',isme:true}
+          ]
+        }
+      ]
+    },
+    {
+      keys:'W',
+      shuju:[
+        {
+          id:1003,
+          src:'./img/5.jpg',
+          name:'王五',
+          message:'哎，一塌糊涂',
+          time:'12:20',
+          beizhu:'同事',
+          weixinhao:'aaa0007',
+          liaotianjilu:[
+            {xinxi:'在吗？',isme:false},
+            {xinxi:'在，好久不见，最近如何？',isme:true},
+            {xinxi:'还好，你呢？',isme:false},
+            {xinxi:'哎，一塌糊涂',isme:true}
+          ]
+        }
+      ]
+    },
+    {
+      keys:'S',
+      shuju:[
+        {
+          id:1006,
+          src:'./img/8.jpg',
+          name:'苏八',
+          message:'我好了',
+          time:'10:23',
+          beizhu:'兄弟',
+          weixinhao:'888888',
+          liaotianjilu:[
+            {xinxi:'我们一起去图书馆吧？',isme:false},
+            {xinxi:'那等我会？',isme:true},
+            {xinxi:'好的',isme:false},
+            {xinxi:'我好了',isme:true}
+          ]
+        },
+        {
+          id:1007,
+          src:'./img/1.jpg',
+          name:'孙九',
+          message:'我去找你',
+          time:'09:28',
+          beizhu:'朋友',
+          weixinhao:'666666',
+          liaotianjilu:[
+            {xinxi:'看电影去吧',isme:false},
+            {xinxi:'不想去，我们去商场买点东西！',isme:true},
+            {xinxi:'ok',isme:false},
+            {xinxi:'我去找你',isme:true}
+          ]
+        }
+      ]
+    }
+  ];
+  var lis = {
+    getAllChat:function(){
+      return liss
+    }
+  }
+  return lis;
+}).factory('$lists',[function(){
+  var list = [
+    {
+      id:1001,
+      src:'./img/3.jpg',
+      name:'张三',
+      message:'哎，一言难尽',
+      time:'14:50',
+      liaotianjilu:[
+        {xinxi:'我有演唱会，你来？',isme:false},
+        {xinxi:'没时间',isme:true},
+        {xinxi:'最近在忙啥呢？',isme:false},
+        {xinxi:'哎，一言难尽',isme:true}
+      ]
+    },
+    {
+      id:1002,
+      src:'./img/4.jpg',
+      name:'李四',
+      message:'马上到',
+      time:'14:30',
+      liaotianjilu:[
+        {xinxi:'我要走，你来？',isme:false},
+        {xinxi:'等我',isme:true},
+        {xinxi:'好的',isme:false},
+        {xinxi:'马上到',isme:true}
+      ]
+    },
+    {
+      id:1003,
+      src:'./img/5.jpg',
+      name:'王五',
+      message:'哎，一塌糊涂',
+      time:'12:20',
+      liaotianjilu:[
+        {xinxi:'在吗？',isme:false},
+        {xinxi:'在，好久不见，最近如何？',isme:true},
+        {xinxi:'还好，你呢？',isme:false},
+        {xinxi:'哎，一塌糊涂',isme:true}
+      ]
+    },
+    {
+      id:1004,
+      src:'./img/9.jpg',
+      name:'赵六',
+      message:'回去注意安全',
+      time:'11:50',
+      liaotianjilu:[
+        {xinxi:'端午回家？',isme:true},
+        {xinxi:'没时间，你要回去？',isme:false},
+        {xinxi:'是啊，准备回去？',isme:true},
+        {xinxi:'回去注意安全',isme:false}
+      ]
+    },
+    {
+      id:1005,
+      src:'./img/7.jpg',
+      name:'马七',
+      message:'注意安全',
+      time:'10:54',
+      liaotianjilu:[
+        {xinxi:'晚上回来？',isme:false},
+        {xinxi:'不回去',isme:true},
+        {xinxi:'那我锁门了',isme:false},
+        {xinxi:'注意安全',isme:true}
+      ]
+    },
+    {
+      id:1006,
+      src:'./img/8.jpg',
+      name:'苏八',
+      message:'我好了',
+      time:'10:23',
+      liaotianjilu:[
+        {xinxi:'我们一起去图书馆吧？',isme:false},
+        {xinxi:'那等我会？',isme:true},
+        {xinxi:'好的',isme:false},
+        {xinxi:'我好了',isme:true}
+      ]
+    },
+    {
+      id:1007,
+      src:'./img/1.jpg',
+      name:'孙九',
+      message:'我去找你',
+      time:'09:28',
+      liaotianjilu:[
+        {xinxi:'看电影去吧',isme:false},
+        {xinxi:'不想去，我们去商场买点东西！',isme:true},
+        {xinxi:'ok',isme:false},
+        {xinxi:'我去找你',isme:true}
+      ]
+    },
+    {
+      id:1008,
+      src:'./img/10.jpg',
+      name:'安十',
+      message:'安',
+      time:'08:50',
+      liaotianjilu:[
+        {xinxi:'早点休息？',isme:false},
+        {xinxi:'恩恩',isme:true},
+        {xinxi:'晚安',isme:false},
+        {xinxi:'安',isme:true}
+      ]
+    },
+    {
+      id:1009,
+      src:'./img/11.jpg',
+      name:'赵十',
+      message:'一会电话联系',
+      time:'08:34',
+      liaotianjilu:[
+        {xinxi:'吃什么去？',isme:false},
+        {xinxi:'随便，去喝点酒',isme:true},
+        {xinxi:'好的',isme:false},
+        {xinxi:'一会电话联系',isme:true}
+      ]
+    }
+  ];
+  var lists = {
+    getAllChat:function(){
+      return list;
+    }
+  }
+  return lists;
+}]).controller('message',['$scope','$lists',function($scope,$lists){
+  $scope.list=$lists.getAllChat();
+  $scope.delete=function(index){
+    $scope.list=$scope.list.filter(function(v,i){
+      return i!==index
+    })
+  }
+}]).controller('address',['$scope','$lis',function($scope,$lis){
+  if(localStorage.lianxiren){
+    $scope.list=angular.fromJson(localStorage.lianxiren)
+  }else{
+    $scope.list=$lis.getAllChat();
+    $scope.keys="keys"
+  }
+  $scope.saveData=function(){
+    localStorage.lianxiren=angular.toJson($scope.list)
+  }
+  // $scope.delete=function(index){
+  //   $scope.list.people=$scope.list.people.filter(function(v,i){
+  //     return i!==index
+  //   })
+  //   $scope.saveDate();
+  // }
+}]).controller('list',['$scope','$lis',function($scope,$lis){
+    $scope.list=$lis.getAllChat();
+    $scope.keys="keys";
+}]).controller('people-message',['$scope','$routeParams','$lis',function($scope,$routeParams,$lis){
+  var id = $routeParams.index;
+  console.log(id)
+  $scope.list=$lis.getAllChat();
+  $scope.shuju=$scope.list[id].shuju;
+
+}]).controller('find',['$scope',function($scope){
+
+}]).controller('friend',['$scope',function($scope){
+
+}]).controller('personal',['$scope',function($scope){
+
+}]).controller('footer',['$scope',function($scope){
+
+}]).controller('liaotian',['$scope','$routeParams','$lists',function($scope,$routeParams,$lists){
+  var id = $routeParams.id;
+  var list=$lists.getAllChat();
+  $scope.duifang=list[id].src;
+  $scope.ziji='./img/6.jpg';
+  $scope.liaotianjilu=list[id].liaotianjilu
+}])
+.directive('qeHeader',[function(){
+  return {
+    replace:true,
+    restrict:'EAC',
+    templateUrl:'view/header.html'
+  }
+}]).directive('qeFooter',[function(){
+  return {
+    replace:true,
+    restrict:'EAC',
+    templateUrl:'view/footer.html'
+  }
+}]).directive('nlList',function(){
+  return{
+    replace:true,
+    restrict:'EAC',
+    templateUrl:'./view/nlList.html',
+    link:function($scope,elem){
+      $('.nav-list').on('click','span',function(){
+        var self=this;
+        var arr =[];
+        $.each($scope.list,function(i,v){
+          arr.push($($('.zimu')[i]).scro);
+          if($(self).text()===v.keys){
+            // $('.weixin-center').scrollTop(arr[i])
+          }
+        })
+      })
+    }
+  }
+})
+.config(['$routeProvider',function($routeProvider){
+  $routeProvider.when('/',{
+    controller:'message',
+    templateUrl:'view/message.html',
+  }).when('/message',{
+    controller:'message',
+    templateUrl:'view/message.html',
+  }).when('/liaotian/:id',{
+    controller:'liaotian',
+    templateUrl:'view/liaotian.html',
+  }).when('/address',{
+    controller:'address',
+    templateUrl:'view/address.html',
+  }).when('/people/:index',{
+    controller:'people-message',
+    templateUrl:'view/people-message.html',
+  }).when('/find',{
+    controller:'find',
+    templateUrl:'view/find.html',
+  }).when('/friend',{
+    controller:'friend',
+    templateUrl:'view/friend.html',
+  }).when('/personal',{
+    controller:'personal',
+    templateUrl:'view/personal.html',
+  }).otherwise({
+    redirectTo:'/'
+  });
+}])

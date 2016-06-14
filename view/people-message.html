@@ -1,0 +1,38 @@
+<div id="people-message" ng-controller="people-message" ng-repeat='m in shuju'>
+  <div class="pm-header">
+    <div class="pm-header-left">
+      <div class="pm-exit"><a href="#/address"></a></div>
+      <div class="src">详细信息</div>
+    </div>
+    <div class="pm-header-right">
+      <div class="pm-up"></div>
+      <div class="pm-middle"></div>
+      <div class="pm-down"></div>
+    </div>
+  </div>
+  <div class="pm-bodyer">
+    <div class="pmb-header">
+      <div class="pmb-h-photo"><img ng-src="{{m.src}}" alt=""></div>
+      <span class="pmb-message">
+        <span class="pmb-name">{{m.name}}</span>
+        <span class="pmb-number">{{m.weixinhao}}</span>
+      </span>
+    </div>
+    <div class="pmb-beizhu">设置备注和标签</div>
+    <div class="pmb-all">
+      <div class="all-place">
+        <span class="all-p-name">地区</span>
+        <span class="all-p-position">中国台湾 新竹市</span>
+      </div>
+      <div class="all-photo">
+        <span>个人相册</span>
+        <div class="all-p-photo"></div>
+        <div class="all-p-photo"></div>
+        <div class="all-p-photo"></div>
+      </div>
+      <div class="all-most">更多</div>
+    </div>
+    <div class="pmb-send">发消息</div>
+    <div class="pmb-video">视频聊天</div>
+  </div>
+</div>

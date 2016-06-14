@@ -1,0 +1,30 @@
+<div class="weixin-center" id="lianxi" ng-controller="address">
+  <!-- 联系人界面开始-->
+  <div class="jiemian">
+    <div class="lianxi-photo address1"></div>
+    <span class="lianxiren">新的朋友</span>
+  </div>
+  <div class="jiemian">
+    <div class="lianxi-photo address2"></div>
+    <span class="lianxiren">群聊</span>
+  </div>
+  <div class="jiemian">
+    <div class="lianxi-photo address3"></div>
+    <span class="lianxiren">标签</span>
+  </div>
+  <div class="jiemian">
+    <div class="lianxi-photo address4"></div>
+    <span class="lianxiren">公众号</span>
+  </div>
+  <nl-list></nl-list>
+  <div class="people-list" ng-repeat="v in list | orderBy:keys">
+    <div class="zimu">{{v.keys}}</div>
+    <div class="jiemian" ng-repeat="m in v.shuju">
+      <a href="#/people/{{$index}}">
+        <div class="lxr-photo"><img ng-src="{{m.src}}" alt=""></div>
+        <span class="lxr-name">{{m.name}}</span>
+      </a>
+    </div>
+  </div>
+  <!-- 联系人界面关闭-->
+</div>
